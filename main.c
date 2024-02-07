@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure d'un élément de la liste chaînée
 typedef struct Node {
     int data;
     struct Node* next;
 } Node;
 
-// Affichage de la liste
 void displayList(Node* head) {
     while (head != NULL) {
         printf("%d ", head->data);
@@ -16,7 +14,6 @@ void displayList(Node* head) {
     printf("\n");
 }
 
-// Ajout d'un élément à la fin de la liste
 Node* append(Node* head, int newData) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = newData;
@@ -34,7 +31,6 @@ Node* append(Node* head, int newData) {
     return head;
 }
 
-// Suppression de l'élément suivant l'élément donné
 Node* deleteAfter(Node* head, int key) {
     if (head == NULL) return NULL;
 
@@ -52,7 +48,6 @@ Node* deleteAfter(Node* head, int key) {
     return head;
 }
 
-// Libérer la mémoire de la liste chaînée
 void freeList(Node* head) {
     Node* temp;
     while (head != NULL) {
@@ -62,7 +57,6 @@ void freeList(Node* head) {
     }
 }
 
-// Main function
 int main() {
     Node* myList = NULL;
     int operation, value, key;
@@ -98,7 +92,6 @@ int main() {
         }
     } while (operation != 0);
 
-    // Libérer la mémoire de la liste chaînée avant de quitter
     freeList(myList);
 
     return 0;
